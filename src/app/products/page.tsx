@@ -30,7 +30,7 @@ const ProductsPage = () => {
     };
 
     load();
-  }, []);
+  }, [setContextProducts]); // ✅ Correção aqui
 
   return (
     <div className={styles.container}>
