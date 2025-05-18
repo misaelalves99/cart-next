@@ -1,14 +1,14 @@
-// 01 - Importações essenciais e hooks
+// app/components/Navbar.tsx
+
 "use client";
 
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import styles from "./Navbar.module.css";
-import CartButton from "./CartButton"; // ✅ Importação do botão do carrinho
+import CartButton from "./CartButton";
 
 const Navbar: React.FC = () => {
-  // 06 - Pathname atual para renderização condicional
   const pathname = usePathname();
   const [currentPath, setCurrentPath] = useState("");
 
@@ -20,7 +20,6 @@ const Navbar: React.FC = () => {
 
   return (
     <nav className={styles.navbar}>
-      {/* 01 - Logo e navegação */}
       <div className={styles.container}>
         <Link href="/" className={styles.logo}>
           Meu E-Commerce
@@ -39,8 +38,6 @@ const Navbar: React.FC = () => {
           >
             Produtos
           </Link>
-
-          {/* ✅ Carrinho como ícone com contador usando o CartButton */}
           <Link href="/cart" className={styles.link}>
             <CartButton />
           </Link>

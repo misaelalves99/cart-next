@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import styles from './CurrencyConverter.module.css'; // ✅ Importando o CSS module
+import styles from './CurrencyConverter.module.css';
 
 interface CurrencyConverterProps {
   amount: number;
@@ -31,7 +31,3 @@ const CurrencyConverter: React.FC<CurrencyConverterProps> = ({ amount, exchangeR
 };
 
 export default CurrencyConverter;
-
-// 02-Funções e Métodos -
-// 06-Hooks -
-// 07-Props e Router -

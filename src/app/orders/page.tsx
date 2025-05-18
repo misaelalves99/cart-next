@@ -5,14 +5,13 @@
 import React, { useEffect, useState } from 'react';
 import OrderCard from '../components/OrderCard';
 import { Order } from '../types/order';
-import styles from './OrdersPage.module.css'; // ✅ CSS Modules profissional
+import styles from './OrdersPage.module.css';
 
 const OrdersPage: React.FC = () => {
   const [orders, setOrders] = useState<Order[]>([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // ⚠️ Substituir por chamada real da API futuramente
     const mockOrders: Order[] = [
       {
         id: 101,

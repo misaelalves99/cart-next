@@ -7,23 +7,21 @@ import { useRouter } from "next/navigation";
 import ProductList from "./components/ProductList";
 import { Product } from "./types/product";
 import styles from "./HomePage.module.css";
-import { getProducts } from "../app/lib/api/products"; // ✅ Caminho corrigido
+import { getProducts } from "../app/lib/api/products";
 
 const HomePage = () => {
   const [products, setProducts] = useState<Product[]>([]);
   const router = useRouter();
 
-  // 06-Hooks + 08-Api - Busca produtos ao montar componente
   useEffect(() => {
     const loadProducts = async () => {
-      const data = await getProducts(); // ✅ Uso da função centralizada
+      const data = await getProducts();
       setProducts(data);
     };
 
     loadProducts();
   }, []);
 
-  // 05-Formulários e Eventos - Handler de navegação
   const handleNavigate = () => {
     router.push("/products");
   };
@@ -37,8 +35,6 @@ const HomePage = () => {
           Ver Produtos
         </button>
       </section>
-
-      {/* 03-Arrays - Produtos em Destaque */}
       <section className={styles.featuredSection}>
         <h2 className={styles.sectionTitle}>Produtos em Destaque</h2>
         <ProductList products={products.slice(0, 6)} />

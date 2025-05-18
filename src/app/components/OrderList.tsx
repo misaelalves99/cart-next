@@ -1,3 +1,5 @@
+// app/components/OrderList.tsx
+
 'use client';
 
 import React from "react";
@@ -28,8 +30,3 @@ const OrderList: React.FC<OrderListProps> = ({ orders }) => {
 };
 
 export default OrderList;
-
-// 01-Estruturas e Tratamento - Lista de pedidos com validação
-// 03-Arrays - Mapeamento dos pedidos para renderizar OrderCard
-// 07-Props e Router - Recebimento de pedidos via props
-// 09-Renderização Condicional - Verificação se há pedidos
