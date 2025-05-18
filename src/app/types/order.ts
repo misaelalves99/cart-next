@@ -1,9 +1,4 @@
 // app/types/order.ts
-
-// 01-Estruturas e Tratamento -
-// 03-Arrays -
-// 04-Objetos -
-
 export interface OrderItem {
   product: {
     id: number;

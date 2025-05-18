@@ -2,7 +2,6 @@
 
 import { Product } from "../../types/product";
 
-// ✅ Produtos mockados locais
 const products: Product[] = [
   {
     id: 1,
@@ -46,7 +45,6 @@ const products: Product[] = [
   },
 ];
 
-// ✅ Retorna os produtos diretamente (mock local)
 export const getProducts = async (): Promise<Product[]> => {
   return products;
 };
