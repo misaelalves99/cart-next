@@ -7,12 +7,14 @@ import { useRouter } from "next/navigation";
 import { Product } from "../types/product";
 import ProductCard from "./ProductCard";
 import { useCart } from "../context/CartContext";
-import { useProduct } from "../context/ProductContext";
 import styles from "./ProductList.module.css";
 import { CartItem } from "../types/cart";
 
-const ProductList: React.FC = () => {
-  const { products, loading, error } = useProduct();
+type ProductListProps = {
+  products: Product[];
+};
+
+const ProductList: React.FC<ProductListProps> = ({ products }) => {
   const { addToCart } = useCart();
   const router = useRouter();
 
@@ -30,10 +32,6 @@ const ProductList: React.FC = () => {
     addToCart(cartItem);
     router.push("/checkout");
   };
-
-  if (loading) return <div className={styles.loading}>Carregando produtos...</div>;
-  if (error) return <div className={styles.error}>{error}</div>;
-  if (!products.length) return <p className={styles.noProductsMessage}>Nenhum produto encontrado.</p>;
 
   return (
     <div className={styles.productGrid}>

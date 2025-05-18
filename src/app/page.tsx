@@ -1,7 +1,5 @@
 // app/page.tsx
 
-// app/page.tsx
-
 "use client";
 
 import React, { useEffect, useState } from "react";
@@ -9,6 +7,7 @@ import { useRouter } from "next/navigation";
 import ProductList from "./components/ProductList";
 import { Product } from "./types/product";
 import styles from "./HomePage.module.css";
+import { getProducts } from "../app/lib/api/products"; // ✅ Caminho corrigido
 
 const HomePage = () => {
   const [products, setProducts] = useState<Product[]>([]);
@@ -16,18 +15,12 @@ const HomePage = () => {
 
   // 06-Hooks + 08-Api - Busca produtos ao montar componente
   useEffect(() => {
-    const fetchProducts = async () => {
-      try {
-        const response = await fetch("/api/product");
-        if (!response.ok) throw new Error("Erro ao buscar produtos");
-        const data = await response.json();
-        setProducts(data);
-      } catch (error) {
-        console.error(error);
-      }
+    const loadProducts = async () => {
+      const data = await getProducts(); // ✅ Uso da função centralizada
+      setProducts(data);
     };
 
-    fetchProducts();
+    loadProducts();
   }, []);
 
   // 05-Formulários e Eventos - Handler de navegação
@@ -55,10 +48,3 @@ const HomePage = () => {
 };
 
 export default HomePage;
-
-// 01-Estruturas e Tratamento -
-// 03-Arrays -
-// 05-Formulários e Eventos -
-// 06-Hooks -
-// 08-Api -
-// 09-Renderização Condicional -
